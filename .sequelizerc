@@ -1,0 +1,6 @@
+module.exports = {
+  'config': './api/lib/postgreSQL/config.js',
+  'models-path': './api/lib/postgreSQL/models/',
+  'migrations-path': './api/lib/postgreSQL/migrations/',
+  'seeders-path': './api/lib/postgreSQL/seeders/',
+}
