@@ -19,9 +19,6 @@ const options = {
       rejectUnauthorized: false,
     }
   },
-  logging: (sql) => {
-    console.log(sql);
-  },
   pool: {
     max: 5,
     min: 0,
@@ -30,7 +27,6 @@ const options = {
   },
   hooks: {
     beforeCreate: (attributes) => {
-      console.log(attributes);
       if (
         attributes &&
         attributes.dataValues &&

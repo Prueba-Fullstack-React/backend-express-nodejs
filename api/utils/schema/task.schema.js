@@ -11,7 +11,7 @@ const createTask = Joi.object({
 
 const updateTask = Joi.object({
   state: state.required(),
-})
+});
 
 const deleteTask = Joi.object({
   id: id.required(),

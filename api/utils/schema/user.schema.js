@@ -18,7 +18,7 @@ const signUpUser = Joi.object({
   username: username.required(),
   email   : email.required(),
   password: password.required(),
-})
+});
 
 module.exports = {
   getUserLogin,

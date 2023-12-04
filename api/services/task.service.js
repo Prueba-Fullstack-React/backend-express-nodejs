@@ -19,7 +19,6 @@ class TaskService {
   }
 
   async updateTaskState(taskId, newState) {
-    console.log('newState ', newState);
     const updatedTask = await models.Task.findByPk(taskId);
 
     if (!updatedTask) {

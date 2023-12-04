@@ -16,7 +16,6 @@ router.post('/login',
       const user = req.user;
       res.json(service.signToken(user));
     } catch (error) {
-      console.log("LAST ERROR: ", error);
       res.status(500).json({ error: 'An unexpected error occurred during login. Please try again.' });
       next(error);
     }
@@ -40,12 +39,9 @@ router.post('/sign-up',
   validatorHandler(signUpUser, 'body'),
   async (req, res, next) => {
     try {
-      console.log('sign.up');
-      console.log('req.body', req.body);
       const user = await service.create(req.body);
       res.json(user);
     } catch (error) {
-      console.log("error ", error);
       next(error);
     }
   }

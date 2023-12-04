@@ -46,7 +46,6 @@ class authService {
       email: user.email
     };
 
-    console.log("user ", user);
     const token = jwt.sign(payload, config.jwtSecret, {
       expiresIn: config.jwtExpiresIn
     });
@@ -58,7 +57,6 @@ class authService {
 
   async signInWithToken(token) {
     const { id } = this.verifyToken(token);
-    console.log("signintoken");
     const user = await models.User.findByPk(id);
 
     if (!user) {
@@ -71,8 +69,6 @@ class authService {
   async create(data) {
 
     try {
-      console.log("User ", data);
-
       const hashedPassword = await bcrypt.hash(`${data.password}`, 10);
 
       // Create a new user using Sequelize's create method
