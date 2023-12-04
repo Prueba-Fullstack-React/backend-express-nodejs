@@ -15,7 +15,9 @@ const options = {
     timestamps: false,
   },
   dialectOptions: {
-    ssl: false,
+    ssl: {
+      rejectUnauthorized: false,
+    }
   },
   logging: (sql) => {
     console.log(sql);
