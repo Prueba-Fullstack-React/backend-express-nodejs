@@ -2,6 +2,7 @@ const { models } = require('../lib/postgreSQL/sequelize');
 
 class TaskService {
   async getTasks(page, pageSize) {
+    const allTasks = await models.Task.findAll();
     const offset = page * pageSize;
     const tasks = await models.Task.findAll({
       limit: pageSize,
@@ -10,7 +11,7 @@ class TaskService {
         ['id', 'ASC']
       ],
     });
-    return tasks;
+    return { tasks, count: allTasks.length };
   }
 
   async createTask(title, state) {
