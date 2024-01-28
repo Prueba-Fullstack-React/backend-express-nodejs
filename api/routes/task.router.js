@@ -14,7 +14,6 @@ router.get('/',
     try {
       const { page, pageSize } = req.query;
       const tasks = await service.getTasks(page, pageSize);
-      console.log(tasks);
       res.json(tasks);
     } catch (error) {
       next(error);
