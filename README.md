@@ -7,13 +7,13 @@ Esta aplicación backend proporciona servicios para la aplicación de la prueba 
 1. Clona el repositorio:
 
    ```
-   git clone <URL_DEL_REPOSITORIO_BACKEND>
+   git clone [<URL_DEL_REPOSITORIO_BACKEND>](https://github.com/Prueba-Fullstack-React/backend-express-nodejs.git)
    ```
 
 2. Ingresa al directorio del repositorio backend:
 
    ```
-   cd <URL_DEL_REPOSITORIO_BACKEND>
+   cd backend-express-nodejs
    ```
 
 3. Instala las dependencias:
