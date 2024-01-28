@@ -4,33 +4,37 @@ const TASK_TABLE = "task";
 
 const TaskTableSchema = {
   id: {
-    type         : DataTypes.INTEGER,
-    primaryKey   : true,
+    type: DataTypes.INTEGER,
+    primaryKey: true,
     autoIncrement: true,
-    allowNull    : false
+    allowNull: false,
   },
   title: {
-    type     : DataTypes.STRING,
-    allowNull: false
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   state: {
-    type     : DataTypes.STRING,
-    allowNull: false
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  user_id: { // Add user_id as a foreign key
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
 };
 
 class Task extends Model {
-      // eslint-disable-next-line no-unused-vars
-  static associate(_models) {
-        // No associations to define
+  static associate(models) {
+    Task.belongsTo(models.User, { foreignKey: "user_id" });
+    // Define other associations if needed
   }
 
   static config(sequelize) {
     return {
       sequelize,
-      tableName : TASK_TABLE,
-      modelName : "Task",
-      timestamps: false
+      tableName: TASK_TABLE,
+      modelName: "Task",
+      timestamps: false,
     };
   }
 }

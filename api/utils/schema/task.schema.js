@@ -5,8 +5,8 @@ const title = Joi.string().min(5);
 const state = Joi.string().valid('activo', 'pendiente');
 
 const createTask = Joi.object({
-  title : title.required(),
-  state: state.required(),
+  title  : title.required(),
+  state  : state.required(),
 });
 
 const updateTask = Joi.object({

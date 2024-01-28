@@ -12,8 +12,9 @@ router.get('/',
   passport.authenticate('jwt', { session: false }),
   async (req, res, next) => {
     try {
+      const userId = req.user.id;
       const { page, pageSize } = req.query;
-      const tasks = await service.getTasks(page, pageSize);
+      const tasks = await service.getTasks(page, pageSize, userId);
       res.json(tasks);
     } catch (error) {
       next(error);
@@ -25,8 +26,9 @@ router.post('/create',
   validatorHandler(createTask, 'body'),
   async (req, res, next) => {
     try {
+      const userId = req.user.id;
       const { title, state } = req.body;
-      const newTask = await service.createTask(title, state);
+      const newTask = await service.createTask(title, state, userId);
       res.status(201).json(newTask);
     } catch (error) {
       next(error);
