@@ -6,6 +6,9 @@ class TaskService {
     const tasks = await models.Task.findAll({
       limit: pageSize,
       offset,
+      order: [
+        ['id', 'ASC']
+      ],
     });
     return tasks;
   }
